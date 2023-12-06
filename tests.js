@@ -289,7 +289,7 @@ describe("Colecciones en JS: Array", () => {
   });
   it("Nos permiten modificar cada elemento", () => {
     let fruits = ["Piña", "Manzana", "Fresa", "Melón"];
-
+        fruits [1] = "Pera";
     // Añade el código que permite modificar el elemento correspondiente
 
     expect(fruits).to.have.same.members(["Piña", "Pera", "Fresa", "Melón"]);
@@ -297,7 +297,7 @@ describe("Colecciones en JS: Array", () => {
 
   it("Podemos añadir elementos", () => {
     let fruits = ["Piña", "Manzana", "Fresa", "Melón"];
-    
+        fruits.push("Pera");
     // Añade el código que permite modificar la lista (incluyendo un elemento al final)
 
     expect(fruits).to.have.same.members([
@@ -393,9 +393,9 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
 describe("Operaciones iterables", () => {
   it("map nos permite realizar operaciones elemento a elemento", () => {
     let list = [1, 5, 7, 9, 11, 13];
-
+        
     // utiliza la función map para aplicar los números de la lista
-    list = "???";
+    list = list.map(number=> number -1);
 
     expect(list).to.have.same.members([0, 4, 6, 8, 10, 12]);
   });
@@ -404,7 +404,7 @@ describe("Operaciones iterables", () => {
     let list = ["Pikachu", "Charmander", "Magikarp"];
 
     // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-
+        let result=list.map(name=> name +", te elijo a ti!");
     expect(result).to.have.same.members([
       "Pikachu, te elijo a ti!",
       "Charmander, te elijo a ti!",
@@ -435,8 +435,8 @@ describe("Operaciones iterables", () => {
     ];
 
     // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-    let result = "???";
-
+   
+     let result= knownExoplanets.includes("TOI-1634 b")
     expect(result).to.equal(true);
   });
 
@@ -465,7 +465,7 @@ describe("Operaciones iterables", () => {
     // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
     // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
     // p.ej. "Hola".endsWith('a') devuelve true
-    let result = "???";
+    let result = knownExoplanets.filter((planeta) => planeta.endsWith("c"));
 
     // todos los planetas de result terminan con la letra c
     expect(result.every((p) => p.endsWith("c"))).to.equal(true);
@@ -474,3 +474,9 @@ describe("Operaciones iterables", () => {
   // Bonus: Escribe un test como los anteriores con algún ejemplo que utilice
   // una lista alguna de las funciones que hemos visto, como map o filter.
 });
+
+it("Multiplicando lista") , () => {
+      let list = [0,1,2,3,4,5,6,7,8,9,10];
+      list = list.map((number) => number * 5);
+      expect(list).to.have.same.members([0, 5, 10, 15, 20, 25,30,35,40,45,50]);
+}
